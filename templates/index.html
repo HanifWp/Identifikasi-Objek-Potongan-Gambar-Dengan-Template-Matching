@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Simple Image Processing</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+</head>
+<body>
+ <nav class="navbar navbar-dark bg-dark ">
+      <a class="navbar-brand navbar-center" href="#">My Simple Image Processing</a>
+   </nav>
+
+   <div class="container">
+      <div class="starter-template">
+         <h2>UAS AI_1184058_Hanif Wavian Pratama</h2>
+         <h2>Template Matching with Multiple Objects</h2>
+         <p>Upload original and cropped images for identification</p>
+         <p> Max Image Size: 2 MB </p>
+      </div>
+   </div>
+
+ <div class="container">
+    <form method=post enctype=multipart/form-data>
+      <p>Original Image</p>
+      <input type=file name=file onchange="loadFile(event)">
+      <br>
+      <br>
+      <p>Cropped Image</p>
+      <input type=file name=file2 onchange="loadFile2(event)">
+      <br>
+      <br>
+      <input type=submit value=Upload class="btn btn-primary">
+    </form>
+   <img id="output" alt="" width="40%" height="40%" />
+   <img id="output2" alt="" width="40%" height="40%" />
+</div>
+
+
+{% if data %}
+  <div class="container">
+   <p>Original Image</p>
+   <img src="{{ data.uploaded_img }}" width="480px"height="360px">
+   <p>Cropped Image</p>
+   <img src="{{ data2.uploaded2_img }}" width="480px"height="360px">
+   <p>Result</p>
+   <img src="{{ data.processed_img }}" width="480px" height="360px">
+  </div>
+{% endif %}
+
+
+<script src="/static/js/index.js" charset="utf-8"></script>
+</body>
+</html>
